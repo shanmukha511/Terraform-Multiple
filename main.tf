@@ -20,7 +20,7 @@ resource "azurerm_resource_group" "pwc-test" {
 
 resource "azurerm_snapshot" "pwc-test" {
  count = 3
-  name                = "test-snapshot3.${count.index}"
+  name                = "test-snapshot3_${count.index}"
 
   location            = "eastus"
 
