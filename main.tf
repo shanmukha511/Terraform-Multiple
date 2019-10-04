@@ -19,8 +19,11 @@ resource "azurerm_resource_group" "pwc-test" {
  
 
 resource "azurerm_snapshot" "pwc-test" {
- count = 3
-  name                = "test-snapshot3_${count.index}"
+
+ 
+  count = length(var.os_disk)
+ 
+  name  = "test-snapshot3_${count.index}"
 
   location            = "eastus"
 
@@ -28,7 +31,7 @@ resource "azurerm_snapshot" "pwc-test" {
 
   create_option       = "Copy"
 
-  source_uri          = "/subscriptions/a8a59231-c575-45fb-8e16-2b4c5b6a2271/resourceGroups/PWC-TEST/providers/Microsoft.Compute/disks/VM1_OsDisk_1_8e5b9f5a054a45dd954dcbb84192c1f2"
+  source_uri          =  var.os_disk[count.index]
 
 }
 
