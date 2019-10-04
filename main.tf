@@ -19,8 +19,8 @@ resource "azurerm_resource_group" "pwc-test" {
  
 
 resource "azurerm_snapshot" "pwc-test" {
-
-  name                = "test-snapshot"
+ count = 3
+  name                = "test-snapshot3"
 
   location            = "eastus"
 
