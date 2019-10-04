@@ -4,7 +4,7 @@ provider "azurerm" {
   tenant_id       = "${var.tenant_id}"
   client_id       =  "${var.client_id}"
   client_secret   =  "${var.client_secret}"
- count = 4
+ 
   
   }
 
@@ -20,7 +20,7 @@ resource "azurerm_resource_group" "pwc-test" {
 
 resource "azurerm_snapshot" "pwc-test" {
 
-  name                = "Server ${count.index}"
+  name                = "test-snapshot"
 
   location            = "eastus"
 
